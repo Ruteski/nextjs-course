@@ -1,31 +1,36 @@
-import {HomeIcon, GamepadIcon, AwardIcon, RouteIcon, FaceIcon} from "@/components";
+import {AwardIcon, FaceIcon, GamepadIcon, HomeIcon, RouteIcon} from "@/components";
+import {cn} from "@/helpers/cn";
 
-export const Navbar= ()=> {
+type NavbarProps = React.ComponentProps<'nav'>
+type NavbarListProps = React.ComponentProps<'ul'>
+type NavbarListItemsProps = React.ComponentProps<'li'>
 
-  const NavbarList = ({children, className = ""}) => {
+export const Navbar= ({className, ...props}: NavbarProps)=> {
+
+  const NavbarList = ({children, className, ...props}: NavbarListProps) => {
     return (
-      <ul className={`${className} my-4 border-t border-indigo-400/20 hover:border-indigo-400/40`}>
+      <ul className={cn('my-4 border-t border-indigo-400/20 hover:border-indigo-400/40', className)} {...props}>
         {children}
       </ul>
 
     )
   }
 
-  const NavbarListItem = ({children, className = ""}) => {
+  const NavbarListItem = ({children, className, ...props}: NavbarListItemsProps) => {
     return (
-      <li className={`${className} my-2 rounded-lg bg-transparent p-2 hover:bg-indigo-400/40 cursor-pointer flex gap-2 items-center hover:text-slate-100`}>
+      <li className={cn('my-2 rounded-lg bg-transparent p-2 hover:bg-indigo-400/40 cursor-pointer flex gap-2 items-center hover:text-slate-100', className)} {...props}>
         {children}
       </li>
     )
   }
 
-
   return (
     // 0 /40 é opacidade
     <nav
-      className="flex h-screen flex-col bg-slate-900 border-r border-indigo-400/20 hover:border-indigo-400/40 w-72 p-2 text-slate-300">
+      {...props}
+      className={cn("flex h-screen flex-col bg-slate-900 border-r border-indigo-400/20 hover:border-indigo-400/40 w-72 p-2 text-slate-300", className)}>
       <div
-        className="flex items-center justify-center"
+        className="flex items-center justify-center my-4"
       >
         <img className="w-auto h-40 p-2" src="http://www.jfmoita.pt/wp-content/uploads/2024/03/Brasao_Moita_Pequeno-1.png" alt=""/>
       </div>
