@@ -10,9 +10,9 @@
       --color-slate-890: 24 31 48;
    }
 }
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+@layer components {
+  .flex-center {
+    @apply flex justify-center items-center;
   }
-} */
+}

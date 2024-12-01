@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body
          className={
-            cn('antialiased flex gap-2 bg-slate-890 text-slate-300', 
+            cn('antialiased bg-slate-890 text-slate-300', 
                inter.className, 
                geistSans.variable, 
                geistMono.variable
