@@ -1,60 +1,9 @@
 import {AwardIcon, FaceIcon, GamepadIcon, HomeIcon, RouteIcon} from "@/components";
 import {cn} from "@/helpers/cn";
-import Link from "next/link";
-
-type NavbarProps = React.ComponentProps<'nav'>
-type NavbarListProps = React.ComponentProps<'ul'>
-type NavbarListItemsProps = React.ComponentProps<'li'>
-type NavbarListItemsLinkProps = React.ComponentProps<typeof Link>
-type NavbarListItemsButtonProps = React.ComponentProps<'button'>
-
-const NavbarList = ({children, className, ...props}: NavbarListProps) => {
-  return (
-    <ul className={cn('my-4 border-t border-indigo-400/20 hover:border-indigo-400/40', className)} {...props}>
-      {children}
-    </ul>
-
-  )
-}
-
-const NavbarListItem = ({children, className, ...props}: NavbarListItemsProps) => {
-  return (
-    <li className={cn('my-2 rounded-lg bg-transparent p-2 hover:bg-indigo-400/40 cursor-pointer flex gap-2 items-center hover:text-slate-100', className)} {...props}>
-      {children}
-    </li>
-  )
-}
-
-const NavbarListItemLink = ({href, children, className, ...props}: NavbarListItemsLinkProps) => {
-  return (
-    <NavbarListItem
-      className={cn('p-0', className)}
-    >
-      <Link 
-        href={href}
-        className="flex gap-2 items-center rounded-lg p-2 w-full"
-        {...props}
-      >
-        {children}
-      </Link>
-    </NavbarListItem>
-  )
-}
-
-const NavbarListItemButton = ({children, className, ...props}: NavbarListItemsButtonProps) => {
-  return (
-    <NavbarListItem
-      className={cn('p-0', className)}
-    >
-      <button
-        className="flex gap-2 items-center rounded-lg p-2 w-full"
-        {...props}
-      >
-        {children}
-      </button>
-    </NavbarListItem>
-  )
-}
+import { NavbarProps } from "./types";
+import { NavbarList } from "./NavbarList";
+import { NavbarListItemLink } from "./NavbarListItemLink";
+import { NavbarListItemButton } from "./NavbarListItemButton";
 
 export const Navbar= ({className, ...props}: NavbarProps)=> {
   return (
@@ -94,9 +43,7 @@ export const Navbar= ({className, ...props}: NavbarProps)=> {
           Walkthroughs
         </NavbarListItemLink>
 
-        {/* <NavbarListItemButton
-          onClick={() => alert('clicou')}
-        >
+        {/* <NavbarListItemButton>
           <RouteIcon
             className="w-4 h-4"
           />
