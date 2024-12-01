@@ -17,6 +17,15 @@ const Article = {
     })
 
     return records
+  },
+
+  count: async ({where = {}}) => {
+
+    const count = await prisma.article.count({
+      where: where,
+    })
+
+    return count
   }
 }
 
