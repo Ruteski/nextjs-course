@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import {Inter} from 'next/font/google';
 import "./globals.css";
 import {Navbar} from "@/components";
+import { cn } from "@/helpers/cn";
 
+
+const inter = Inter({subsets: ['latin']});
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,10 +31,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex gap-2`}
+         className={
+            cn('antialiased flex gap-2 bg-slate-890 text-slate-300', 
+               inter.className, 
+               geistSans.variable, 
+               geistMono.variable
+            )
+         }
       >
         <Navbar />
-
 
         {children}
       </body>
