@@ -3,7 +3,8 @@ import {cn} from "@/helpers/cn";
 import { NavbarProps } from "./types";
 import { NavbarList } from "./NavbarList";
 import { NavbarListItemLink } from "./NavbarListItemLink";
-import { NavbarListItemButton } from "./NavbarListItemButton";
+import Image from "next/image";
+// import { NavbarListItemButton } from "./NavbarListItemButton";
 
 export const Navbar= ({className, ...props}: NavbarProps)=> {
   return (
@@ -14,7 +15,13 @@ export const Navbar= ({className, ...props}: NavbarProps)=> {
       <div
         className="flex items-center justify-center my-4"
       >
-        <img className="w-auto h-40 p-2" src="http://www.jfmoita.pt/wp-content/uploads/2024/03/Brasao_Moita_Pequeno-1.png" alt=""/>
+        <Image 
+          className="w-auto h-40 p-2" 
+          src="http://www.jfmoita.pt/wp-content/uploads/2024/03/Brasao_Moita_Pequeno-1.png" 
+          alt=""
+          width={134}
+          height={144}
+        />
       </div>
 
       <NavbarList className="flex-grow">
