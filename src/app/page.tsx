@@ -12,10 +12,6 @@ export default async function Home() {
   });
   const highlightedArticles = articles.slice(0,4)
   const listArticles = articles.slice(4)
-  
-
-  console.log('*** ~ Home articles:', articles);
-  
 
   return (
     <div className="ml-72">

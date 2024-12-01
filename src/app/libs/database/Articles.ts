@@ -16,8 +16,6 @@ const Article = {
       skip: skip,
     })
 
-    console.log('*** ~ DB Article records', records);
-    
     return records
   }
 }
